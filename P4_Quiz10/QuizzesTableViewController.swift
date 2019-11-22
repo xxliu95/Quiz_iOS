@@ -24,6 +24,7 @@ class QuizzesTableViewController: UITableViewController {
         let qvc = QuizViewController(coder: coder)!
         let row = tableView.indexPathForSelectedRow!.row
         qvc.quiz = quiz10Model.quizzes[row]
+        qvc.num = row + 1
         
         return qvc
     }
@@ -48,7 +49,7 @@ class QuizzesTableViewController: UITableViewController {
         cell.textLabel?.text = quiz.question
         cell.detailTextLabel?.text = quiz.author?.username ?? "Anónimo"
         cell.imageView?.image = UIImage(named: "none") // es bueno poner una imagen por defecto y luego cambiarlo
-        
+                
         if let url = quiz.attachment?.url {
             let img = image(url: url)
             cell.imageView?.image = img

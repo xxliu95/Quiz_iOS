@@ -11,16 +11,19 @@ import UIKit
 class QuizViewController: UIViewController {
 
     var quiz: QuizItem!
+    var num: Int!
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answer: UITextField!
     @IBOutlet weak var attachmentImageView: UIImageView!
     @IBOutlet weak var authorImageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var questionNumber: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        questionNumber.text = "Question number \(num ?? 0)"
         questionLabel.text = quiz.question
         attachmentImageView.image = UIImage(named: "none")
         if let url = quiz.attachment?.url {
