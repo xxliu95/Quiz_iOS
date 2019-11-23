@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2663B98D2388B0510074A93D /* QuizTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2663B98C2388B0510074A93D /* QuizTableViewCell.swift */; };
 		26807E54238767AB00E0E6BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26807E53238767AB00E0E6BE /* AppDelegate.swift */; };
 		26807E56238767AB00E0E6BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26807E55238767AB00E0E6BE /* SceneDelegate.swift */; };
 		26807E5B238767AB00E0E6BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26807E59238767AB00E0E6BE /* Main.storyboard */; };
@@ -20,7 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26807E50238767AB00E0E6BE /* P4_Quiz10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = P4_Quiz10.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2663B98C2388B0510074A93D /* QuizTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTableViewCell.swift; sourceTree = "<group>"; };
+		26807E50238767AB00E0E6BE /* Quiz Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quiz Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		26807E53238767AB00E0E6BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26807E55238767AB00E0E6BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		26807E5A238767AB00E0E6BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		26807E51238767AB00E0E6BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				26807E50238767AB00E0E6BE /* P4_Quiz10.app */,
+				26807E50238767AB00E0E6BE /* Quiz Game.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +76,7 @@
 				26807E672387689100E0E6BE /* QuizzesTableViewController.swift */,
 				26807E6C238774D400E0E6BE /* Alert.swift */,
 				26807E702387830200E0E6BE /* QuizViewController.swift */,
+				2663B98C2388B0510074A93D /* QuizTableViewCell.swift */,
 			);
 			path = P4_Quiz10;
 			sourceTree = "<group>";
@@ -104,7 +107,7 @@
 			);
 			name = P4_Quiz10;
 			productName = P4_Quiz10;
-			productReference = 26807E50238767AB00E0E6BE /* P4_Quiz10.app */;
+			productReference = 26807E50238767AB00E0E6BE /* Quiz Game.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -164,6 +167,7 @@
 				26807E56238767AB00E0E6BE /* SceneDelegate.swift in Sources */,
 				26807E6D238774D400E0E6BE /* Alert.swift in Sources */,
 				26807E6B23876B7400E0E6BE /* Quiz10Model.swift in Sources */,
+				2663B98D2388B0510074A93D /* QuizTableViewCell.swift in Sources */,
 				26807E6F23877B0100E0E6BE /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,7 +319,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xxliu95.P4-Quiz10";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Quiz Game";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -332,7 +336,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xxliu95.P4-Quiz10";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Quiz Game";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

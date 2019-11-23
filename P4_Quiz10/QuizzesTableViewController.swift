@@ -14,6 +14,8 @@ class QuizzesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(refreshQuizzes(sender:)))
 
         quiz10Model.download()
         tableView.reloadData()
@@ -41,23 +43,32 @@ class QuizzesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Quiz Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Quiz Cell", for: indexPath) as! QuizTableViewCell
 
         let row = indexPath.row
         let quiz = quiz10Model.quizzes[row]
         
-        cell.textLabel?.text = quiz.question
-        cell.detailTextLabel?.text = quiz.author?.username ?? "Anónimo"
-        cell.imageView?.image = UIImage(named: "none") // es bueno poner una imagen por defecto y luego cambiarlo
-                
+        cell.quest.text = quiz.question
+        cell.author.text = "Created by \(quiz.author?.username ?? "Anónimo")"
+        cell.img.image = UIImage(named: "none") // es bueno poner una imagen por defecto y luego cambiarlo
+        cell.authorImg.image =  UIImage(named: "none")
+        
         if let url = quiz.attachment?.url {
             let img = image(url: url)
-            cell.imageView?.image = img
+            cell.img.image = img
+        }
+        
+        if let url = quiz.author?.photo?.url {
+            let authorImg = image(url: url)
+            cell.authorImg.image = authorImg
         }
         
         return cell
     }
     
+    @objc func refreshQuizzes(sender: UIBarButtonItem) {
+        print("pulsado")
+    }
 
     /*
     // Override to support conditional editing of the table view.
