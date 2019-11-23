@@ -8,10 +8,11 @@
 
 import UIKit
 
-class QuizViewController: UIViewController {
+class QuizViewController: UIViewController, UITextFieldDelegate {
 
     var quiz: QuizItem!
     var num: Int!
+    var counter = 0
     
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answer: UITextField!
@@ -23,6 +24,8 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureTextFields()
+        configureTapGesture()
         questionNumber.text = "Question number \(num ?? 0)"
         questionLabel.text = quiz.question
         attachmentImageView.image = UIImage(named: "none")
@@ -35,15 +38,49 @@ class QuizViewController: UIViewController {
         }        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func configureTextFields() {
+        answer.delegate = self
     }
-    */
+    
+    private func configureTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(QuizViewController.handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func handleTap() {
+        print("tap tap tap")
+        view.endEditing(true)
+    }
+    
+    @IBAction func checkPressed(_ sender: Any) {
+        view.endEditing(true)
+        checkAnswer()
+    }
+    
+    func checkAnswer(){
+        
+        if answer.text?.lowercased() == quiz.answer.lowercased() {
+            print("Bien")
+            self.alert(msg: "Correct Answer!")
+        } else {
+            print("Mal")
+            counter += 1
+            
+            if counter >= 3 {
+                self.alert(msg: "The correct answer was \(quiz.answer)")
+                counter = 0
+            } else {
+                self.alert(msg: "Wrong Answer!")
+            }
+        }
+
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        checkAnswer()
+        return true
+    }
 
 }
+

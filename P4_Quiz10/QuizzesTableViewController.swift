@@ -67,7 +67,8 @@ class QuizzesTableViewController: UITableViewController {
     }
     
     @objc func refreshQuizzes(sender: UIBarButtonItem) {
-        print("pulsado")
+        quiz10Model.download()
+        tableView.reloadData()
     }
 
     /*
