@@ -100,7 +100,7 @@ class QuizViewController: UIViewController, UITextFieldDelegate {
         
         if notification.name == UIResponder.keyboardWillShowNotification ||
             notification.name == UIResponder.keyboardWillChangeFrameNotification {
-            view.frame.origin.y = -keyboardRect.height
+            view.frame.origin.y = -keyboardRect.height * 0.9
         } else {
             view.frame.origin.y = 0
         }

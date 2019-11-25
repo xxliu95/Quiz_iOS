@@ -66,6 +66,12 @@ class QuizzesTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        quiz10Model.download()
+        sender.endRefreshing()
+        tableView.reloadData()
+    }
+    
     @objc func refreshQuizzes(sender: UIBarButtonItem) {
         quiz10Model.download()
         tableView.reloadData()
